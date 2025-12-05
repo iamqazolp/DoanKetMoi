@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _startSorting() {
     setState(() {
       // Start the stream
-      _currentStream = SortingLogic.bubbleSort(_numbers, _speed);
+      _currentStream = SortingLogic.insertionSort(_numbers, _speed);
     });
   }
 
