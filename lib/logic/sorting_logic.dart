@@ -49,7 +49,7 @@ class SortingLogic {
         list[j - 1] = temp;
         j--;
         // 2. Tell UI we swapped them
-        yield SortStep(list, i, i - 1, SortState.swapping);
+        yield SortStep(list, j, j - 1, SortState.swapping);
         await Future.delayed(speed);
       }
     }
