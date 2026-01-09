@@ -13,13 +13,12 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Sorting Visualizer"),
         centerTitle: true,
-        elevation: 0,
+        elevation: 100,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black87,
       ),
       body: Column(
         children: [
-          // Status Bar
           Consumer<SortingViewModel>(
             builder: (context, vm, child) {
               return Container(
@@ -38,13 +37,9 @@ class HomePage extends StatelessWidget {
               );
             },
           ),
-          
-          // Visualization Area
-          const Expanded(
-            child: VisualizerArea(),
-          ),
-          
-          // Controls
+
+          const Expanded(child: VisualizerArea()),
+
           const ControlPanel(),
         ],
       ),

@@ -9,7 +9,12 @@ class MergeSort implements SortingAlgorithm {
   Stream<SortingState> sort(List<int> initialArray) async* {
     List<int> array = List.from(initialArray);
     yield* _mergeSort(array, 0, array.length - 1);
-    yield SortingState(List.from(array), [], StepType.sorted, message: "Sorted!");
+    yield SortingState(
+      List.from(array),
+      [],
+      StepType.sorted,
+      message: "Sorted!",
+    );
   }
 
   Stream<SortingState> _mergeSort(List<int> array, int left, int right) async* {
@@ -23,7 +28,12 @@ class MergeSort implements SortingAlgorithm {
     }
   }
 
-  Stream<SortingState> _merge(List<int> array, int left, int mid, int right) async* {
+  Stream<SortingState> _merge(
+    List<int> array,
+    int left,
+    int mid,
+    int right,
+  ) async* {
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
@@ -31,17 +41,20 @@ class MergeSort implements SortingAlgorithm {
     List<int> R = List.filled(n2, 0);
 
     for (int i = 0; i < n1; i++) {
-        L[i] = array[left + i];
+      L[i] = array[left + i];
     }
     for (int j = 0; j < n2; j++) {
-        R[j] = array[mid + 1 + j];
+      R[j] = array[mid + 1 + j];
     }
 
     int i = 0, j = 0;
     int k = left;
 
     while (i < n1 && j < n2) {
-      yield SortingState(List.from(array), [left + i, mid + 1 + j], StepType.compare); // Visualizing comparison based on original indices approx
+      yield SortingState(List.from(array), [
+        left + i,
+        mid + 1 + j,
+      ], StepType.compare);
       await Future.delayed(Duration(milliseconds: 1));
 
       if (L[i] <= R[j]) {

@@ -1,19 +1,13 @@
-
 abstract class SortingAlgorithm {
   String get name;
   Stream<SortingState> sort(List<int> initialArray);
 }
 
-enum StepType {
-  compare,
-  swap,
-  overwrite, // For merge sort
-  sorted
-}
+enum StepType { compare, swap, overwrite, sorted }
 
 class SortingState {
   final List<int> array;
-  final List<int> activeIndices; // Indices being compared/swapped
+  final List<int> activeIndices;
   final StepType type;
   final String? message;
 
